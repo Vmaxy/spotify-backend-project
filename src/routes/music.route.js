@@ -9,6 +9,6 @@ const upload = multer({ storage: multer.memoryStorage() })
 router.post('/upload',upload.single('music'),createMusic) 
 router.post('/create',upload.single('coverImage'),createAlbum)
 router.post('/get',authMiddleware.authuser, getMusicToAlbum)
-
+router.get('/getalbum',authMiddleware.authuser, getAlbum)
 
 module.exports = router

@@ -79,4 +79,11 @@ async function getMusicToAlbum(req,res) {
     res.status(200).json({message : "music fetched successfully", 
         musics : music,})
     }
-module.exports = {createMusic,createAlbum, getMusicToAlbum }
+
+
+async function getAlbum(req,res) {
+    const album =  await albumModel.find().populate('musics')
+    res.status(200).json({message : "album fetched successfully", 
+        albums : album,})
+    }
+module.exports = {createMusic,createAlbum, getMusicToAlbum, getAlbum} 
