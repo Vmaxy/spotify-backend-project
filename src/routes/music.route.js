@@ -6,7 +6,7 @@ const multer = require('multer')
 const upload = multer({ storage: multer.memoryStorage() })
 
 router.post('/upload',upload.single('music'),createMusic) 
-
+router.post('/create-album',upload.single('coverImage'),createAlbum)
 
 
 
