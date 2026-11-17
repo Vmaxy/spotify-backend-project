@@ -42,7 +42,7 @@ async function createMusic(req,res)
 
 }
 
-async function addMusicToAlbum(req,res) {
+async function createAlbum(req,res) {
     const token = req.cookies.token
 
     if (!token)
@@ -74,5 +74,9 @@ async function addMusicToAlbum(req,res) {
  }
 }) }
 
-
-module.exports = {createMusic}
+async function getMusicToAlbum(req,res) {
+    const music =  await musicModel.find()
+    res.status(200).json({message : "music fetched successfully", 
+        musics : music,})
+    }
+module.exports = {createMusic,createAlbum, getMusicToAlbum }
